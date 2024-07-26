@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lesson2.Data.Models\Lesson2.Data.Models.csproj" />
+    <ProjectReference Include="..\Lesson2.Data\Lesson2.Data.csproj" />
+  </ItemGroup>
+
+</Project>

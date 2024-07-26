@@ -1,0 +1,17 @@
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\obj\Debug\net7.0\Lesson2.Services.csproj.AssemblyReference.cache
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\obj\Debug\net7.0\Lesson2.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\obj\Debug\net7.0\Lesson2.Services.AssemblyInfoInputs.cache
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\obj\Debug\net7.0\Lesson2.Services.AssemblyInfo.cs
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\obj\Debug\net7.0\Lesson2.Services.csproj.CoreCompileInputs.cache
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\bin\Debug\net7.0\Lesson2.Services.deps.json
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\bin\Debug\net7.0\Lesson2.Services.dll
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\bin\Debug\net7.0\Lesson2.Services.pdb
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\bin\Debug\net7.0\Lesson2.Data.dll
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\bin\Debug\net7.0\Lesson2.Data.Models.dll
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\bin\Debug\net7.0\Lesson2.Data.Models.pdb
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\bin\Debug\net7.0\Lesson2.Data.pdb
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\obj\Debug\net7.0\Lesson2.Services.csproj.CopyComplete
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\obj\Debug\net7.0\Lesson2.Services.dll
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\obj\Debug\net7.0\refint\Lesson2.Services.dll
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\obj\Debug\net7.0\Lesson2.Services.pdb
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Services\obj\Debug\net7.0\ref\Lesson2.Services.dll

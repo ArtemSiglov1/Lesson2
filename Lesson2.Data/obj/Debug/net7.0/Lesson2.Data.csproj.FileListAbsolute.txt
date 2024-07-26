@@ -1,0 +1,17 @@
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\obj\Debug\net7.0\Lesson2.Data.csproj.AssemblyReference.cache
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\obj\Debug\net7.0\Lesson2.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\obj\Debug\net7.0\Lesson2.Data.AssemblyInfoInputs.cache
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\obj\Debug\net7.0\Lesson2.Data.AssemblyInfo.cs
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\obj\Debug\net7.0\Lesson2.Data.csproj.CoreCompileInputs.cache
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\bin\Debug\net7.0\Lesson2.Data.deps.json
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\bin\Debug\net7.0\Lesson2.Data.runtimeconfig.json
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\bin\Debug\net7.0\Lesson2.Data.dll
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\bin\Debug\net7.0\Lesson2.Data.pdb
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\bin\Debug\net7.0\Lesson2.Data.Models.dll
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\bin\Debug\net7.0\Lesson2.Data.Models.pdb
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\obj\Debug\net7.0\Lesson2.Data.csproj.CopyComplete
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\obj\Debug\net7.0\Lesson2.Data.dll
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\obj\Debug\net7.0\refint\Lesson2.Data.dll
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\obj\Debug\net7.0\Lesson2.Data.pdb
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\obj\Debug\net7.0\Lesson2.Data.genruntimeconfig.cache
+C:\Users\siglov\source\repos\Lesson2\Lesson2.Data\obj\Debug\net7.0\ref\Lesson2.Data.dll

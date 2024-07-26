@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Lesson2.Data.Models/1.0.0": {
+        "runtime": {
+          "Lesson2.Data.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Lesson2.Data.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

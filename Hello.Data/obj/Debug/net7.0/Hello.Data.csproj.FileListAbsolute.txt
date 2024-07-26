@@ -1,0 +1,5 @@
+C:\Users\siglov\source\repos\Hello\Hello.Data\obj\Debug\net7.0\Hello.Data.csproj.AssemblyReference.cache
+C:\Users\siglov\source\repos\Hello\Hello.Data\obj\Debug\net7.0\Hello.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\siglov\source\repos\Hello\Hello.Data\obj\Debug\net7.0\Hello.Data.AssemblyInfoInputs.cache
+C:\Users\siglov\source\repos\Hello\Hello.Data\obj\Debug\net7.0\Hello.Data.AssemblyInfo.cs
+C:\Users\siglov\source\repos\Hello\Hello.Data\obj\Debug\net7.0\Hello.Data.csproj.CoreCompileInputs.cache

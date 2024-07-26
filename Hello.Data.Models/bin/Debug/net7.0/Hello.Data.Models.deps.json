@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Hello.Data.Models/1.0.0": {
+        "runtime": {
+          "Hello.Data.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Hello.Data.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
