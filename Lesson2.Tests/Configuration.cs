@@ -22,8 +22,10 @@ namespace Lesson2.Tests
             //"Server=PS-3052023\TESTMSSQL;Port=1433;Database=TestLesson;Username=test;Password=test";
 
             services.AddTransient<UserService>();
+            services.AddTransient<RoleService>();
 
             _serviceProvider = services.BuildServiceProvider();
+
 
         }
 

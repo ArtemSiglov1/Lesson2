@@ -14,6 +14,8 @@ namespace Lesson2.Data
        public DbSet<Roles> Roles { get; set; }
        public DbSet<Profession> Professions { get; set; }
         public DbSet<RoleUsers> RoleUsers { get; set; }
+        public DbSet<UserInfo> UserInfos { get; set; }
+        public DbSet<Accounts> Accounts { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=PS-3052023\\TESTMSSQL;Database=TestLesson;User Id=test;Password=test;TrustServerCertificate=True");
@@ -23,8 +25,8 @@ namespace Lesson2.Data
         {
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<User>().HasKey(x => x.Id);
-            modelBuilder.Entity<User>().Property(u => u.DateCreate).
-                HasComputedColumnSql("GETDATE()");
+           // modelBuilder.Entity<User>().Property(u => u.DateCreate).
+              // HasComputedColumnSql("GETDATE()");
             modelBuilder.ApplyConfiguration(new UserConfiguration());
 
             modelBuilder.Entity<User>().Property(u => u.FullName).HasComputedColumnSql("[SecondName]+' '+[Name]");
@@ -58,7 +60,20 @@ namespace Lesson2.Data
                 .HasOne(ru => ru.User)
                 .WithMany(u => u.RoleUsers)
                 .HasForeignKey(ru => ru.UserId);
-
+            
+            
+            modelBuilder
+                .Entity<UserInfo>()
+                .HasOne(u => u.User)
+                .WithOne(p => p.Info)
+                .HasForeignKey<UserInfo>(p => p.UserId);
+            modelBuilder.Entity<Accounts>().HasKey(u => new { u.UserId });
+            modelBuilder
+                .Entity<User>()
+                .HasOne(u => u.Accounts)
+                .WithOne(p => p.User)
+                .HasForeignKey<Accounts>(p => p.UserId)
+                .HasPrincipalKey<User>(_ => _.Id);
             //modelBuilder.Entity<RoleUsers>()
             //    .HasOne(ru => ru.Role)
             //    .WithMany(r => r.Users)

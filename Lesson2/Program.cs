@@ -7,8 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using System.Data;
-
-var configuration = new ConfigurationBuilder().Build();
+try
+{
+    var configuration = new ConfigurationBuilder().Build();
 
 var services = new ServiceCollection();
 
@@ -16,7 +17,6 @@ services.AddDbContext<DataContext>(x =>
     x.UseSqlServer(configuration.GetConnectionString("DataContext")));
 //"Host=localhost;Port=5432;Database=UsersLunguage;Username=postgres;Password=111111";
 //"Server=PS-3052023\TESTMSSQL;Port=1433;Database=TestLesson;Username=test;Password=test";
-
 services.AddTransient<UserService>();
 
 services.AddTransient<RoleService>();
@@ -33,8 +33,7 @@ var roleService = sp.GetRequiredService<RoleService>();
 //await roleService.UserAddRole(1, EnumTypeRoles.User);
 //await Output(EnumTypeRoles.User);
 
-try
-{
+
     //await roleService.UserChangeRole(1,new List<EnumTypeRoles> { EnumTypeRoles.Admin,EnumTypeRoles.Guest});
     await Output(EnumTypeRoles.Admin);
     await Output(EnumTypeRoles.User);

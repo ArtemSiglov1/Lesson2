@@ -45,7 +45,7 @@ namespace Lesson2.Services
             {
                 await Console.Out.WriteLineAsync("Вы не указали имя"); return;
             }
-            if (user.Age < 0 && user.Age > 100) {
+            if (user.Info.Age < 0 && user.Info.Age > 100) {
                 await Console.Out.WriteLineAsync("Вы указали неверный возраст"); return;
             }
             await db.Users.AddAsync(user);
@@ -80,7 +80,7 @@ namespace Lesson2.Services
             {
                 await Console.Out.WriteLineAsync("Вы указали не корректнный возраст"); return;
             }
-            user.Age = age;
+            user.Info.Age = age;
 
             await db.SaveChangesAsync();
         }
@@ -126,7 +126,7 @@ namespace Lesson2.Services
         {
             await using var db = new DataContext(_dbContextOptions);
             var query = db.Users.AsQueryable();
-            var userAge=await query.Where(u => u.Age > age).ToListAsync();
+            var userAge=await query.Where(u => u.Info.Age > age).ToListAsync();
             return userAge;
         }
         public async Task<List<User>> SearchUsers(string name)
@@ -182,7 +182,6 @@ namespace Lesson2.Services
             var userName = await query.Where(x => x.Name.ToLower().Contains(name)).ToListAsync();
             return userName;
         }
-
         public async Task EditProfessionUser(int id,int professionId)
         {
             await using var db = new DataContext(_dbContextOptions);

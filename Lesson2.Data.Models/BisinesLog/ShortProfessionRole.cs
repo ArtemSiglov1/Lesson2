@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Lesson2.Data.Models.BisinesLog
 {
-    public class ModelProfessionStat
+    public class ShortProfessionRole
     {
-        public string Name { get; set; }
-        public int Count { get; set; }
+        public ShortUser User { get; set; }
+        public ShortRole Role { get; set; }
+        public string ProfessionName { get; set; }
+
     }
 }

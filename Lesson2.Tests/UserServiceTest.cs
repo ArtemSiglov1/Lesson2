@@ -27,7 +27,7 @@ namespace Lesson2.Tests
             var user = new User()
             {
 
-                Age = 1,
+                //Age = 1,
                 Name = Guid.NewGuid().ToString(),
                 SecondName = Guid.NewGuid().ToString(),
 
@@ -38,7 +38,7 @@ namespace Lesson2.Tests
 
             Assert.Single(searchedUsers);
             Assert.Equal(user.Name, searchedUsers[0].Name);
-            Assert.Equal(user.Age, searchedUsers[0].Age);
+            Assert.Equal(user.Info.Age, searchedUsers[0].Info.Age);
             Assert.Equal(user.Id, searchedUsers[0].Id);
 
 
@@ -46,56 +46,68 @@ namespace Lesson2.Tests
         [Fact(DisplayName = "Изменение имени пользователя(успешный кейс)")]
         public async Task SuccessEditName()
         {
+            var searchedUsers = await _userService.SearchUsers(await AddUser());
+
             string name = Guid.NewGuid().ToString();
-            await _userService.EditName(3, name);
-            var searchedUsers = await _userService.SearchUsers(name);
-            Assert.Single(searchedUsers);
-            Assert.Equal(name, searchedUsers[0].Name);
+            await _userService.EditName(searchedUsers[0].Id, name);
+            var searchedUsers1 = await _userService.SearchUsers(name);
+
+
+Assert.Single(searchedUsers1);
+            Assert.Equal(name, searchedUsers1[0].Name);
 
         }
         [Fact(DisplayName = "Изменение возраста пользователя(успешный кейс)")]
         public async Task SuccessEditAge()
         {
-            int age = 1;
-            await _userService.EditAge(1, age);
-            var searchedUsers = await _userService.SearchUsers("Artem");
-            Assert.Single(searchedUsers);
+            var searchedUsers = await _userService.SearchUsers(await AddUser());
 
-            Assert.Equal(age, searchedUsers[0].Age);
+            int age = 1;
+            await _userService.EditAge(searchedUsers[0].Id, age);
+            var searchedUsers1 = await _userService.SearchUsers(searchedUsers[0].Name);
+            Assert.Single(searchedUsers1);
+
+            Assert.Equal(age, searchedUsers1[0].Info.Age);
 
         }
         [Fact(DisplayName = "Изменение зарплаты пользователя(успешный кейс)")]
         public async Task SuccessEditSalary()
         {
-            int salary = 1000;
-            await _userService.EditSalary(1, salary);
-            var searchedUsers = await _userService.SearchUsers("Artem");
-            Assert.Single(searchedUsers);
+            var searchedUsers = await _userService.SearchUsers(await AddUser());
 
-            Assert.Equal(salary, searchedUsers[0].Salary);
+            int salary = 1000;
+            await _userService.EditSalary(searchedUsers[0].Id, salary);
+            var searchedUsers1 = await _userService.SearchUsers(searchedUsers[0].Name);
+            Assert.Single(searchedUsers1);
+
+            Assert.Equal(salary, searchedUsers1[0].Salary);
         }
         [Fact(DisplayName = "Изменение даты рождения пользователя(успешный кейс)")]
         public async Task SuccessEditDateofDirth()
         {
-            var dateOfBirth = new DateTime(2007, 03, 23);
-            await _userService.EditDateOfBirth(1, dateOfBirth);
-            var searchedUsers = await _userService.SearchUsers("Artem");
-            Assert.Single(searchedUsers);
+            var searchedUsers = await _userService.SearchUsers(await AddUser());
 
-            Assert.Equal(dateOfBirth, searchedUsers[0].DateOfBirth);
+            var dateOfBirth = new DateTime(2007, 03, 23);
+            await _userService.EditDateOfBirth(searchedUsers[0].Id, dateOfBirth);
+            var searchedUsers1 = await _userService.SearchUsers(searchedUsers[0].Name);
+            Assert.Single(searchedUsers1);
+
+            Assert.Equal(dateOfBirth, searchedUsers1[0].DateOfBirth);
         }
         [Fact(DisplayName = "Удаление пользователя(успешный кейс)")]
         public async Task SuccessDeleteUser()
         {
-            int id = 8;
-            await _userService.Delete(id);
-            var user = await _userService.SearchUsers(id);
-            Assert.NotEqual(id, user.Id);
+            var searchedUsers = await _userService.SearchUsers(await AddUser());
+
+            await _userService.Delete(searchedUsers[0].Id);
+            var user = await _userService.SearchUsers(searchedUsers[0].Id);
+            Assert.NotEqual(searchedUsers[0].Id, user.Id);
         }
         [Fact(DisplayName = "Вывод на экран пользователя(успешный кейс)")]
 
         public async Task SeccessGetList()
         {
+
             int skip = 5;
             int take = 4;
            var user= await _userService.GetList(skip,take);
@@ -121,7 +133,7 @@ namespace Lesson2.Tests
             var user = await _userService.GetUsersMoreAge(age);
             foreach(var item in user)
             {
-                Assert.True(item.Age>age);
+                Assert.True(item.Info.Age>age);
             }
         }
 
@@ -142,9 +154,9 @@ namespace Lesson2.Tests
         [Fact(DisplayName = "Изменение профессии пользователя(успешный кейс)")]
         public async Task SuccessEditProfessionUser()
         {
-            int id = 3;
+            var searchedUsers = await _userService.SearchUsers(await AddUser());
             int profId = 1;
-            await _userService.EditProfessionUser(id,profId);
+            await _userService.EditProfessionUser(searchedUsers[0].Id,profId);
             var user = await _userService.SearchProfession(profId);
             Assert.Equal(profId, user.Id);
         }
