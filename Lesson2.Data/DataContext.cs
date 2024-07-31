@@ -25,12 +25,11 @@ namespace Lesson2.Data
         {
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<User>().HasKey(x => x.Id);
-           // modelBuilder.Entity<User>().Property(u => u.DateCreate).
-              // HasComputedColumnSql("GETDATE()");
+            //modelBuilder.Entity<UserInfo>().Property(u => u.DateCreate).
+            //   HasComputedColumnSql("GETDATE()");
             modelBuilder.ApplyConfiguration(new UserConfiguration());
 
             modelBuilder.Entity<User>().Property(u => u.FullName).HasComputedColumnSql("[SecondName]+' '+[Name]");
-
 
             modelBuilder.Entity<Roles>().ToTable("Roles");
             modelBuilder.Entity<Roles>().HasKey(p => p.RoleType);
@@ -61,7 +60,6 @@ namespace Lesson2.Data
                 .WithMany(u => u.RoleUsers)
                 .HasForeignKey(ru => ru.UserId);
             
-            
             modelBuilder
                 .Entity<UserInfo>()
                 .HasOne(u => u.User)
@@ -74,10 +72,6 @@ namespace Lesson2.Data
                 .WithOne(p => p.User)
                 .HasForeignKey<Accounts>(p => p.UserId)
                 .HasPrincipalKey<User>(_ => _.Id);
-            //modelBuilder.Entity<RoleUsers>()
-            //    .HasOne(ru => ru.Role)
-            //    .WithMany(r => r.Users)
-            //    .HasForeignKey(ru => ru.RoleId);
             base.OnModelCreating(modelBuilder);
         }
     }

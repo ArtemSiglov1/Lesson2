@@ -23,6 +23,9 @@ namespace Lesson2.Tests
 
             services.AddTransient<UserService>();
             services.AddTransient<RoleService>();
+            services.AddTransient<AccountService>();
+            services.AddTransient<ProfessionService>();
+
 
             _serviceProvider = services.BuildServiceProvider();
 

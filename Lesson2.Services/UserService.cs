@@ -23,7 +23,7 @@ namespace Lesson2.Services
             var user = await db.Users.FirstOrDefaultAsync(x => x.Id == id);
             if (user == null)
             {
-                return new User() {Id=0 };
+                return null;
             }
             return user;
         }
@@ -33,7 +33,7 @@ namespace Lesson2.Services
             var user = await db.Professions.FirstOrDefaultAsync(x => x.Id == id);
             if (user == null)
             {
-                return new Profession() { Id = 0 };
+                return null;
             }
             return user;
         }
@@ -70,8 +70,9 @@ namespace Lesson2.Services
         public async Task EditAge(int id, int age)
         {
             await using var db = new DataContext(_dbContextOptions);
-            var user = await db.Users.FirstOrDefaultAsync(x => x.Id == id);
-            if (user == null)
+            var query = db.UserInfos.AsQueryable();
+            var info = query.FirstOrDefault(x => x.UserId == id); 
+            if (info == null)
             {
                 await Console.Out.WriteLineAsync("Пользователя с данным айди не существует"); return;
             }
@@ -80,7 +81,7 @@ namespace Lesson2.Services
             {
                 await Console.Out.WriteLineAsync("Вы указали не корректнный возраст"); return;
             }
-            user.Info.Age = age;
+            info.Age = age;
 
             await db.SaveChangesAsync();
         }
@@ -125,8 +126,8 @@ namespace Lesson2.Services
         public async Task<List<User>> GetUsersMoreAge(int age)
         {
             await using var db = new DataContext(_dbContextOptions);
-            var query = db.Users.AsQueryable();
-            var userAge=await query.Where(u => u.Info.Age > age).ToListAsync();
+            var query = db.UserInfos.AsQueryable();
+            var userAge=await query.Where(u => u.Age > age).Select(x=>new User() { Id=x.Id,Info=new UserInfo() { Age=x.Age } }).ToListAsync();
             return userAge;
         }
         public async Task<List<User>> SearchUsers(string name)
@@ -161,6 +162,11 @@ namespace Lesson2.Services
             {//todo поставить проверку на совпадение профессии
                 await Console.Out.WriteLineAsync("Вы не указали профессию");return;
             }
+            var professions = db.Professions.Any(x=>x.Name==name);
+            if(professions==true)
+            {
+                await Console.Out.WriteLineAsync("Такая япроффессия уже существует");return;
+            }
             var profession = new Profession()
             {
                 Name = name
@@ -182,6 +188,20 @@ namespace Lesson2.Services
             var userName = await query.Where(x => x.Name.ToLower().Contains(name)).ToListAsync();
             return userName;
         }
+        public async Task<UserInfo> GetUserInfo(int id)
+        {
+            await using var db = new DataContext(_dbContextOptions);
+            var query = db.UserInfos.AsQueryable();
+            var info= query.FirstOrDefault(x=>x.UserId==id);
+            if (info==null)
+            {
+                await Console.Out.WriteLineAsync("Юзера с таким айди не существует");return null;
+            }
+            return info;
+        }
+        
+        
+        //
         public async Task EditProfessionUser(int id,int professionId)
         {
             await using var db = new DataContext(_dbContextOptions);

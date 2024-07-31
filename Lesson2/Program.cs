@@ -20,27 +20,34 @@ services.AddDbContext<DataContext>(x =>
 services.AddTransient<UserService>();
 
 services.AddTransient<RoleService>();
-var sp = services.BuildServiceProvider();
+    services.AddTransient<ProfessionService>();
+
+    var sp = services.BuildServiceProvider();
 
 
 var userService = sp.GetRequiredService<UserService>();
 
 var roleService = sp.GetRequiredService<RoleService>();
+    var professionService = sp.GetRequiredService<ProfessionService>();
 
-//await userService.Add(new User() { Name = "Artem", Age = 17 }); 
-//await userService.Add(new User() { Name = "Roma", Age = 17 }); 
-//await userService.Add(new User() { Name = "Petr", Age = 17 }); 
-//await roleService.UserAddRole(1, EnumTypeRoles.User);
-//await Output(EnumTypeRoles.User);
+    //await GetUserProfessionRoles();
+    //await userService.Add(new User() { Name = "Artem", Age = 17 }); 
+    //await userService.Add(new User() { Name = "Roma", Age = 17 }); 
+    //await userService.Add(new User() { Name = "Petr", Age = 17 }); 
+    //await roleService.UserAddRole(1, EnumTypeRoles.User);
+    //await Output(EnumTypeRoles.User);
+    await userService.AddProfession("Malar");
+   await userService.EditProfessionUser(1, 5);
+  await  roleService.UserAddRole(1,EnumTypeRoles.User);
 
-
+    await GetUserProfessionRoles();
     //await roleService.UserChangeRole(1,new List<EnumTypeRoles> { EnumTypeRoles.Admin,EnumTypeRoles.Guest});
-    await Output(EnumTypeRoles.Admin);
-    await Output(EnumTypeRoles.User);
+    //await Output(EnumTypeRoles.Admin);
+    //await Output(EnumTypeRoles.User);
 
-  //  await roleService.UserRemoveRole(1, EnumTypeRoles.Admin);
+    //  await roleService.UserRemoveRole(1, EnumTypeRoles.Admin);
     // await Output(EnumTypeRoles.Admin);
-    await OutputRoles(1);
+    //await OutputRoles(1);
 
     Console.ReadLine();
 
@@ -69,6 +76,15 @@ var roleService = sp.GetRequiredService<RoleService>();
             Console.Write($"{item.RoleType} {item.Name} ");
         }
     }
+   async Task GetUserProfessionRoles()
+    {
+       var users= await professionService.GetUserProfessionRole("Malar", EnumTypeRoles.User);
+        foreach (var item in users)
+        {
+            Console.WriteLine($"{item.User.Id} {item.ProfessionName} {item.Role.Name}");
+        }
+    }
+
 }
 catch (Exception ex) { Console.WriteLine(ex.Message); }
 ////await Output(0, 100);
